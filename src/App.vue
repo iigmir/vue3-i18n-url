@@ -6,8 +6,13 @@
 </template>
 
 <script>
+import Navigator from "./components/sb";
+
 export default {
-    name: 'app',
+    name: "App",
+    components: {
+        Navigator,
+    }
 }
 </script>
 
