@@ -1,10 +1,20 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="app">
+    <navigator />
+    <router-view/>
   </div>
-  <router-view/>
 </template>
+
+<script>
+import Navigator from "./components/Navigator";
+
+export default {
+  name: "App",
+  components: {
+    Navigator
+  },
+}
+</script>
 
 <style lang="scss">
 #app {
