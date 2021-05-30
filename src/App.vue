@@ -1,7 +1,13 @@
 <template>
     <div id="app-main">
-        <navigator />
-        <router-view/>
+        <el-row class="tac">
+            <el-col :span="4">
+                <navigator />
+            </el-col>
+            <el-col :span="20">
+                <router-view/>
+            </el-col>
+        </el-row>
     </div>
 </template>
 
