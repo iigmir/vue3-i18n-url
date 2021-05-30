@@ -1,26 +1,21 @@
 <template>
     <main>
         <h1>Language select</h1>
-        <el-select v-model="value" placeholder="Select">
-            <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-            />
-        </el-select>
+        <the-option />
         <the-panel />
     </main>
 </template>
 
 <script>
 import { ref } from "vue";
-import ThePanel from "@/components/HelloI18n.vue";
+import ThePanel from "./HelloI18n";
+import TheOption from "./options";
 
 export default {
     name: "i18n",
     components: {
-        ThePanel
+        ThePanel,
+        TheOption,
     },
     setup() {
         const options = [
