@@ -23,7 +23,7 @@ export default {
                 { value: "zh-Hant", label: "繁體中文" },
                 { value: "ko", label: "한국어" },
             ],
-            value: ref("en"),
+            value: ref( locale ),
             change_locale: (lang = "en") => {
                 locale.value = lang;
             }
