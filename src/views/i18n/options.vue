@@ -1,32 +1,33 @@
 <template>
-    <el-select v-model="value" placeholder="Select">
+    <el-select v-model="value" v-on:change="change_locale" placeholder="Select">
         <el-option
             v-for="item in options"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value"
+            v-bind:key="item.value"
+            v-bind:label="item.label"
+            v-bind:value="item.value"
         />
     </el-select>
 </template>
 
 <script>
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 
 export default {
     name: "i18nOptions",
-    methods: {
-        change_locale() {
-            console.log(123);
-        }
-    },
     setup() {
-        const options = [
-            { value: "en", label: "English" },
-            { value: "zh-Hant", label: "繁體中文" },
-            { value: "ko", label: "한국어" },
-        ];
-        let value = ref("en");
-        return { options, value };
+        const { locale } = useI18n({ useScope: "global" });
+        return {
+            options: [
+                { value: "en", label: "English" },
+                { value: "zh-Hant", label: "繁體中文" },
+                { value: "ko", label: "한국어" },
+            ],
+            value: ref("en"),
+            change_locale: (lang = "en") => {
+                locale.value = lang;
+            }
+        };
     },
 }
 </script>
