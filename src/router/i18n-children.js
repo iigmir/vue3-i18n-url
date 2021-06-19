@@ -17,9 +17,11 @@ export default [
     {
         path: "i18n",
         name: "i18n",
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "i18n" */ "../views/i18n/index.vue")
+    },
+    {
+        path: "umi",
+        name: "Umi",
+        component: () => import(/* webpackChunkName: "Umi" */ "../views/umi/index.vue")
     }
 ];

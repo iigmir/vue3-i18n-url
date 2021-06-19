@@ -4,7 +4,7 @@
             <i v-bind:class="icon"></i> {{ name }}
         </el-menu-item>
         <el-menu-item index="/path-test">
-            <i class="el-icon-star-on"></i> Testr
+            <i class="el-icon-s-check"></i> Test
         </el-menu-item>
         <!-- path-test -->
     </el-menu>
@@ -34,6 +34,11 @@ export default {
                     index: i18n_route("/i18n"),
                     icon: ["el-icon-chat-round"],
                     name: "i18n"
+                },
+                {
+                    index: i18n_route("/umi"),
+                    icon: ["el-icon-umbrella"],
+                    name: "Umi"
                 },
             ];
         }
