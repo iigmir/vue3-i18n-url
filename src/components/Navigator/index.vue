@@ -6,7 +6,6 @@
         <el-menu-item index="/path-test">
             <i class="el-icon-s-check"></i> Test
         </el-menu-item>
-        <!-- path-test -->
     </el-menu>
 </template>
 
