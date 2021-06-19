@@ -12,11 +12,13 @@
 <script>
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
+import { useRouter } from "vue-router";
 
 export default {
     name: "i18nOptions",
     setup() {
         const { locale } = useI18n({ useScope: "global" });
+        const router = useRouter();
         return {
             // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames
             options: [
@@ -26,9 +28,9 @@ export default {
             ],
             value: ref( locale ),
             change_locale: (lang = "en") => {
-                // console.log(lang);
                 locale.value = lang;
-            }
+                router.push(`/${lang}/i18n`);
+            },
         };
     },
 };
