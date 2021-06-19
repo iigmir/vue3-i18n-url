@@ -5,7 +5,9 @@
                 <navigator />
             </el-col>
             <el-col :span="20">
-                <router-view/>
+                <div class="wrapper">
+                    <router-view/>
+                </div>
             </el-col>
         </el-row>
     </div>
@@ -22,13 +24,18 @@ export default {
 };
 </script>
 
+<style scoped>
+.wrapper {
+    padding-top: 60px;
+    padding-left: 60px;
+}
+</style>
+
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
 }
 </style>
