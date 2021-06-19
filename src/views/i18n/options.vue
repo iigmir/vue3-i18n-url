@@ -13,6 +13,7 @@
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
+import LanguageCodes from "@/locales/support-languages";
 
 export default {
     name: "i18nOptions",
@@ -26,11 +27,9 @@ export default {
             router.push(`/${lang}/i18n`);
         };
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames
-        const options = [
-            { value: "en", label: "English" },
-            { value: "zh-Hant", label: "繁體中文" },
-            { value: "ko", label: "한국어" },
-        ];
+        const options = LanguageCodes.map( value =>
+            ({ value, label: ( new Intl.DisplayNames([value], {type: "language"}) ).of( value ), })
+        );
         return {  options, value, change_locale, };
     },
 };
