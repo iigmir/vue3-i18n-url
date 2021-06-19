@@ -3,6 +3,10 @@
         <el-menu-item v-for="({ index, icon, name }) in routes" v-bind:key="index" v-bind:index="index">
             <i v-bind:class="icon"></i> {{ name }}
         </el-menu-item>
+        <el-menu-item index="/path-test">
+            <i class="el-icon-star-on"></i> Testr
+        </el-menu-item>
+        <!-- path-test -->
     </el-menu>
 </template>
 
