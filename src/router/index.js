@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "../views/Home.vue";
 
-const routes = [
+const children = [
     {
         path: "/",
         name: "Home",
@@ -24,6 +24,25 @@ const routes = [
         component: () => import(/* webpackChunkName: "i18n" */ "../views/i18n/index.vue")
     }
 ];
+
+const routes = [{
+    path: "/:locale",
+    component: { template: "<router-view></router-view>" },
+    beforeEnter: (to, from, next) => {
+        const locale = to.params.locale;
+        const supported_locales = ["zh-Hant", "zh-Hans", "en", "ja", "ko"];
+        if (!supported_locales.includes(locale)) return next("en");
+        // If the locale is supported and the current locale is different, we switch to the chosen language.
+        // if (i18n.locale !== locale) { // 4
+        //     i18n.locale = locale;
+        // }
+        return next();
+    },
+    children,
+},{
+    path: "*",
+    redirect() { return "/en"; }
+}];
 
 const router = createRouter({
     history: createWebHashHistory(),
