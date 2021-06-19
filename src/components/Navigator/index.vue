@@ -8,17 +8,14 @@
 
 <script>
 import { useI18n } from "vue-i18n";
-import { computed, watchEffect } from "vue";
 
 export default {
     name: "Navigator",
-    computed: {},
-    setup() {
-        const { locale } = useI18n({ useScope: "global" });
-        // const language = ref( locale.value );
-        const i18n_route = path => `/${locale.value}${path}`;
-        const routes = computed( () =>
-            ([
+    computed: {
+        routes() {
+            const { locale } = useI18n({ useScope: "global" });
+            const i18n_route = path => `/${locale.value}${path}`;
+            return [
                 {
                     index: i18n_route("/"),
                     icon: ["el-icon-star-on"],
@@ -34,10 +31,8 @@ export default {
                     icon: ["el-icon-chat-round"],
                     name: "i18n"
                 },
-            ]))
-        ;
-        watchEffect(() => console.log(locale.value));
-        return { routes };
-    }
+            ];
+        }
+    },
 };
 </script>
