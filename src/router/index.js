@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-// import SupportLanguages from "@/locales/support-languages.json";
 import Home from "@/views/Home.vue";
+import PathTest from "@/views/path-test/index.vue";
+import SubPathTest from "@/views/path-test/sub.vue";
 
 const routes = [
     {
@@ -25,15 +26,18 @@ const routes = [
         component: () => import(/* webpackChunkName: "i18n" */ "../views/i18n/index.vue")
     },
     {
+        path: "/path-test/:id?",
+        name: "PathTest",
+        component: () => PathTest,
+        children: [{
+            path: "sub",
+            component: SubPathTest,
+        }]
+    },
+    {
         path: "/",
         redirect: "/en"
     },
-    {
-        path: "/path-test",
-        name: "PathTest",
-        component: () => import(/* webpackChunkName: "PathTest" */ "../views/path-test/index.vue"),
-        // children: [{}]
-    }
 ];
 
 const router = createRouter({
