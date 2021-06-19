@@ -18,6 +18,7 @@ export default {
     setup() {
         const { locale } = useI18n({ useScope: "global" });
         return {
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DisplayNames
             options: [
                 { value: "en", label: "English" },
                 { value: "zh-Hant", label: "繁體中文" },
@@ -25,8 +26,8 @@ export default {
             ],
             value: ref( locale ),
             change_locale: (lang = "en") => {
-                console.log(lang);
-                // locale.value = lang;
+                // console.log(lang);
+                locale.value = lang;
             }
         };
     },
