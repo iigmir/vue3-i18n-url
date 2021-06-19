@@ -1,12 +1,12 @@
 export default {
     en: {
       message: {
-        hello: 'hello world'
+        hello: "hello world"
       }
     },
     ja: {
       message: {
-        hello: 'こんにちは、世界'
+        hello: "こんにちは、世界"
       }
     }
 };
