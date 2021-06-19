@@ -27,6 +27,12 @@ export default defineComponent({
     "zh-Hant": {
         "hello": "午安啊，多語言化！"
     },
+    "zh-Hans": {
+        "hello": "中午好，多语言化！"
+    },
+    "ja": {
+        "hello": "こんにちは、国際化！"
+    },
     "ko": {
         "hello": "안녕하십니까, 현지화!"
     }
