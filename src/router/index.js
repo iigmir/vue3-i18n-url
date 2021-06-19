@@ -26,26 +26,30 @@ const routes = [
             component: () => import(/* webpackChunkName: "i18n" */ "../views/i18n/index.vue")
         }
     ],
-//     {
-//     path: "/:locale",
-//     component: { template: "<router-view></router-view>" },
-//     beforeEnter: (to, from, next) => {
-//         const locale = to.params.locale;
-//         // debugger;
-//         // console.log(locale);
-//         if (!SupportLanguages.includes(locale)) return next("en");
-//         // If the locale is supported and the current locale is different, we switch to the chosen language.
-//         // if (i18n.locale !== locale) { // 4
-//         //     i18n.locale = locale;
-//         // }
-//         return next();
-//     },
-//     children,
-// }
-// ,{
-//     path: "/",
-//     redirect: "/en",
-// }
+];
+
+const i18n_url = [
+        {
+    path: "/:locale",
+    component: { template: "<router-view></router-view>" },
+    beforeEnter: (to, from, next) => {
+        const locale = to.params.locale;
+        // debugger;
+        // console.log(locale);
+        if (![].includes(locale)) return next("en");
+        // If the locale is supported and the current locale is different, we switch to the chosen language.
+        // if (i18n.locale !== locale) { // 4
+        //     i18n.locale = locale;
+        // }
+        return next();
+    },
+    children: [],
+}
+,{
+    path: "/",
+    redirect: "/en",
+}
+
 ];
 
 const router = createRouter({
