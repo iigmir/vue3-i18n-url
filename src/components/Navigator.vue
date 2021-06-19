@@ -7,28 +7,32 @@
 </template>
 
 <script>
+import { useI18n } from "vue-i18n";
+
 export default {
     name: "Navigator",
-    computed: {
-        routes() {
-            return [
-                {
-                    index: "/",
-                    icon: ["el-icon-star-on"],
-                    name: "Home"
-                },
-                {
-                    index: "/about",
-                    icon: ["el-icon-place"],
-                    name: "About"
-                },
-                {
-                    index: "/i18n",
-                    icon: ["el-icon-chat-round"],
-                    name: "i18n"
-                },
-            ];
-        },
-    },
+    computed: {},
+    setup() {
+        const { locale } = useI18n({ useScope: "global" });
+        const i18n_route = path => `/${locale.value}${path}`;
+        const routes = [
+            {
+                index: i18n_route("/"),
+                icon: ["el-icon-star-on"],
+                name: "Home"
+            },
+            {
+                index: i18n_route("/about"),
+                icon: ["el-icon-place"],
+                name: "About"
+            },
+            {
+                index: i18n_route("/i18n"),
+                icon: ["el-icon-chat-round"],
+                name: "i18n"
+            },
+        ];
+        return { routes };
+    }
 };
 </script>
