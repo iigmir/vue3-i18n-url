@@ -26,6 +26,6 @@ export default {
         let value = ref("en");
         return { options, value };
     },
-}
+};
 </script>
 

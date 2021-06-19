@@ -19,7 +19,7 @@ export default {
     components: {
         Navigator,
     }
-}
+};
 </script>
 
 <style>
