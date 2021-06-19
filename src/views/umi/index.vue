@@ -2,7 +2,7 @@
     <main>
         <article>
             <h1>Umi text</h1>
-            <p>{{ t("umi") }}</p>
+            <p>{{ value }}</p>
         </article>
         <nav>
             <h2>Switch</h2>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, computed } from "vue";
 import { useI18n } from "vue-i18n";
 import LanguageCodes from "@/locales/support-languages";
 
@@ -24,14 +24,17 @@ export default defineComponent({
     name: "Flowersi18n",
     setup() {
         const { t } = useI18n({ inheritLocale: true, useScope: "local", });
-        const options = LanguageCodes.map( language =>
-            ({
-                value: `/${language}/umi`,
-                label: ( new Intl.DisplayNames([language], {type: "language"}) ).of( language ),
-            })
-        );
-        // Something todo ..
-        return { t , options };
+        const i18nlabel = language => (
+            new Intl.DisplayNames([language], {type: "language"})
+        ).of( language );
+        const options = LanguageCodes.map( language => ({
+            value: `/${language}/umi`,
+            label: i18nlabel( language ),
+        }) );
+        const value = computed( () => {
+            return t("umi");
+        });
+        return { t , options, value };
     }
 });
 </script>
