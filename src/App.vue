@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Navigator from "./components/Navigator";
+import Navigator from "./components/Navigator/index";
 
 export default {
     name: "App",
