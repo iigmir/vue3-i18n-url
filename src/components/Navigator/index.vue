@@ -38,7 +38,7 @@ export default {
                 {
                     index: i18n_route("/umi"),
                     icon: ["el-icon-umbrella"],
-                    name: "Umi"
+                    name: "Flowers"
                 },
             ];
         }
