@@ -15,18 +15,12 @@
 
 <script>
 import Navigator from "./components/Navigator/index";
-import { useI18n } from "vue-i18n";
 
 export default {
     name: "App",
     components: {
         Navigator,
     },
-    setup() {
-        const [ lang ] = window.location.hash.split("/").filter( text => text !== "#" );
-        const { locale } = useI18n({ useScope: "global" });
-        locale.value = lang;
-    }
 };
 </script>
 
