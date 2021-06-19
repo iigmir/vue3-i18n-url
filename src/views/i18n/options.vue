@@ -25,7 +25,8 @@ export default {
             ],
             value: ref( locale ),
             change_locale: (lang = "en") => {
-                locale.value = lang;
+                console.log(lang);
+                // locale.value = lang;
             }
         };
     },
