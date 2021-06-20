@@ -44,6 +44,9 @@ export default defineComponent({
     "ja": {
         "umi": "私たちは未来の花"
     },
+    "zh-Hans": {
+        "umi": "我們是未來的花"
+    },
     "zh-Hant": {
         "umi": "我們是未來的花"
     },
