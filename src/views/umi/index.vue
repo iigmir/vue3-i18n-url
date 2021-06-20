@@ -23,7 +23,6 @@ import LanguageCodes from "@/locales/support-languages";
 export default defineComponent({
     name: "Flowersi18n",
     setup() {
-        const { t } = useI18n({ inheritLocale: true, useScope: "local", });
         const i18nlabel = language => (
             new Intl.DisplayNames([language], {type: "language"})
         ).of( language );
@@ -32,9 +31,10 @@ export default defineComponent({
             label: i18nlabel( language ),
         }) );
         const value = computed( () => {
+            const { t } = useI18n({ inheritLocale: true, useScope: "local", });
             return t("umi");
         });
-        return { t , options, value };
+        return { options, value };
     }
 });
 </script>

@@ -4,22 +4,20 @@
 
 <script>
 import { useRoute } from "vue-router";
-import { computed, watch } from "vue";
+import { watch } from "vue";
 import { useI18n } from "vue-i18n";
 
 export default {
     name: "i18nMount",
     setup() {
-        const lang = computed({
-            get: () => {
-                const route = useRoute();
-                return route.params.locale;
-            },
-        });
+        const route = useRoute();
         const { locale } = useI18n({ useScope: "global" });
-        locale.value = lang.value;
-        watch( () => lang, (newval, oldval) => {
-            console.log(newval, oldval);
+        locale.value = route.params.locale;
+        /**
+         * https://stackoverflow.com/questions/63800831
+         */
+        watch( () => route.params.locale, new_locale => {
+            locale.value = new_locale;
         });
     }
 };
