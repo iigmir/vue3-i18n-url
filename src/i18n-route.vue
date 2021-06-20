@@ -4,7 +4,7 @@
 
 <script>
 import { useRoute } from "vue-router";
-import { ref, watch, computed } from "vue";
+import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 
 export default {
@@ -18,9 +18,9 @@ export default {
         });
         const { locale } = useI18n({ useScope: "global" });
         locale.value = lang.value;
-        watch( ref(lang.value), (newval, oldval) => {
-            console.log(newval, oldval);
-        });
+        // watch( () => lang, (newval, oldval) => {
+        //     console.log(newval, oldval);
+        // });
     }
 };
 </script>
